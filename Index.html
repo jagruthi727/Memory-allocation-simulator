@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Memory Allocation Simulator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <p class="kicker">OPERATING SYSTEMS — MEMORY MANAGEMENT</p>
+  <h1>Memory Allocation Simulator</h1>
+  <p class="sub">Type your memory blocks and process sizes once. All four algorithms run on the same input and show their results side by side. Each block keeps its own remaining capacity, which later processes can still use.</p>
+
+  <!-- INPUT -->
+  <div class="panel input-panel">
+    <div class="input-grid">
+      <div class="field">
+        <label for="blocksInput">Memory block sizes</label>
+        <input id="blocksInput" type="text" value="100, 500, 200, 300, 600" autocomplete="off">
+        <div class="hint">Separate with commas — e.g. 100, 500, 200</div>
+        <div class="err" id="blocksErr">Enter positive whole numbers only.</div>
+      </div>
+      <div class="field">
+        <label for="procInput">Process sizes</label>
+        <input id="procInput" type="text" value="212, 417, 112, 426" autocomplete="off">
+        <div class="hint">In arrival order — P1, P2, P3 …</div>
+        <div class="err" id="procErr">Enter positive whole numbers only.</div>
+      </div>
+      <div class="btns">
+        <button class="run" id="runBtn">Run all algorithms</button>
+        <button class="reset" id="resetBtn">Example</button>
+      </div>
+    </div>
+    <div class="summary-line" id="summaryLine"></div>
+  </div>
+
+  <!-- RESULT BOXES -->
+  <div class="cards" id="cards"></div>
+
+  <!-- COMPARISON -->
+  <div class="panel compare">
+    <h2>Side-by-side comparison</h2>
+    <div class="table-scroll">
+      <table id="compareTable">
+        <thead>
+          <tr>
+            <th>Algorithm</th><th>Allocated</th><th>Failed</th><th>Allocated memory</th><th>Free memory</th><th>Utilization</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>Simulated allocation — no real system memory is read or modified.</footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
